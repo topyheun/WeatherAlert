@@ -15,8 +15,10 @@ public class User {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
     private String password;
+
+    @Column(unique = true)
     private String email;
 }

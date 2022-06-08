@@ -9,16 +9,16 @@
 
 <body>
 <h1>회원가입</h1>
-<form action="/join" method="POST">
+<form action="/join" method="POST"  enctype="application/x-www-form-urlencoded">
 
-    <label for="id">Id</label>
-    <input placeholder="Id" autofocus type="text" id="id" name="id">
+    <label for="id">Id : </label>
+    <input placeholder="Id" autofocus type="text" id="id" name="id"><br>
 
-    <label for="password">Password</label>
-    <input placeholder="Password" autofocus type="text" id="password" name="password">
+    <label for="password">Password : </label>
+    <input placeholder="Password" autofocus type="text" id="password" name="password"><br>
 
-    <label for="email">Email</label>
-    <input placeholder="E-mail" autofocus type="text" id="email" name="email">
+    <label for="email">Email : </label>
+    <input placeholder="E-mail" autofocus type="text" id="email" name="email"><br><br>
 
     <button>회원가입</button>
 

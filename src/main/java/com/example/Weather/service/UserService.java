@@ -9,5 +9,6 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     void createUser(User user);
+    void findPw(UserDto userDto);
 
 }
