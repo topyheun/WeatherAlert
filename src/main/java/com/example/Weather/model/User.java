@@ -17,8 +17,9 @@ public class User {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
+    private String username;
     private String password;
-
+    private String nickname;
     @Column(unique = true)
     private String email;
 }

@@ -29,9 +29,7 @@ public class UserController {
 
     @PostMapping("/join")
     public String createUser(@RequestBody UserDto userDto) {
-        System.out.println("userDto = " + userDto.getEmail());
         User user = modelMapper.map(userDto, User.class);
-        System.out.println("user = " + user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.createUser(user);
 
@@ -39,15 +37,18 @@ public class UserController {
     }
 
     @GetMapping("/findpw")
-    public String findPw(){
+    public String findPwGet(){
         return "findpw";
     }
 
-    @PostMapping("/findpw") //ID E-mail 로 pw 찾기 (ID를 통해 DB에 같은 행에 있는 email과 요청으로 날라온 email 주소가 같으면 비밀번호 email로 발송)
-    public String findPw(@RequestBody UserDto userDto){
+    @PostMapping("/findpw") //username 이랑 nickname 으로 email 찾아서 email로 메일 전송 & 전송했다는 알림
+    public void findPwPost(@RequestBody UserDto userDto){
         userService.findPw(userDto);
+    }
 
-        return "redirect:/";
+    @PostMapping("/idCheck")
+    void idCheckPost(@RequestBody UserDto userDto){
+//        userService.idCheck(userDto); //아이디 확인에 대한 button action 처리
     }
 }
 

@@ -17,24 +17,14 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void createUser(User user){
-        System.out.println("여기까지는 되냐");
-
         userRepository.save(user);
-
     }
 
     @Override
     public void findPw(UserDto userDto) {
-        //userDto에 email id 2개 값이 들어왔을 때, DB에 id가 있으면 id에 해당되는 email과 요청으로온 email이 일치하는지 확인 후 임시비밀번호 발급
-        //DB에 id가 없으면 "등록되지 않은 id라고 출력
-        if (userRepository.findById(userDto.getId()).getEmail() = userDto.getEmail()){
-            //임시비밀번호 발송
-        }
+        //userDto에 nickname, username 2개 값이 들어왔을 때,
+        //nickname, username 에 일치하는 email로 임시 비밀번호를 발급하는 api
+
+        userRepository.findEmailByUsernameAndNickname(userDto.getUsername(), userDto.getNickname());
     }
 }
-//        if(userDto.getEmail() = userRepository.findById(userDto.getId())){
-//            //이메일 보내기
-//        }
-//        else {
-//            System.out.println("다시입력해주세요");
-//        }
